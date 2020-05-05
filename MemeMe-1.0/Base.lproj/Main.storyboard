@@ -80,9 +80,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="albumButton" destination="qMz-TU-9i5" id="nhB-FB-9p0"/>
                         <outlet property="bottomTextField" destination="Gqf-DZ-HTA" id="1zA-xt-I7K"/>
                         <outlet property="cameraButton" destination="EMc-Rh-TwQ" id="oVn-3A-8ju"/>
+                        <outlet property="cancelButton" destination="8e4-sk-aZK" id="DD7-uT-VTv"/>
                         <outlet property="imagePickerView" destination="j2q-Jr-Yze" id="Lot-mu-Vy3"/>
+                        <outlet property="shareButton" destination="wJs-lI-EAG" id="xTx-5z-Srl"/>
                         <outlet property="topTextField" destination="MCW-pz-XOa" id="pXc-jo-EH7"/>
                     </connections>
                 </viewController>

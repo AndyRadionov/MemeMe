@@ -14,7 +14,10 @@ class MemeViewController: UIViewController,
     UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -40,6 +43,9 @@ class MemeViewController: UIViewController,
     
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        albumButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+        shareButton.isEnabled = false
+        cancelButton.isEnabled = false
         subscribeToKeyboardNotifications()
     }
     
