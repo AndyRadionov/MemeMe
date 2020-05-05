@@ -7,56 +7,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-k9-OET">
-                                <rect key="frame" x="0.0" y="831" width="414" height="49"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2q-Jr-Yze" userLabel="Image">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="bottomTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gqf-DZ-HTA" userLabel="Bottom Text">
+                                <rect key="frame" x="16" y="699" width="382" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2O-bD-XcV" userLabel="Top Toolbar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="PickGallery" id="qMz-TU-9i5">
-                                        <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="jSp-Dn-Gfj"/>
-                                        </connections>
+                                    <barButtonItem image="square.and.arrow.up" catalog="system" id="wJs-lI-EAG" userLabel="Share Button"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QEm-rQ-Kow"/>
+                                    <barButtonItem title="Cancel" width="42" id="8e4-sk-aZK" userLabel="Cancel Button">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-135" maxY="0.0"/>
                                     </barButtonItem>
-                                    <barButtonItem title="PickCamera" id="EMc-Rh-TwQ">
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-k9-OET" userLabel="Bottom Toolbar">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CeF-d5-nlF"/>
+                                    <barButtonItem image="camera.fill" catalog="system" id="EMc-Rh-TwQ" userLabel="Camera Button">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="ITK-ch-Z5v"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Kdn-hV-Yrd"/>
+                                    <barButtonItem title="Album" id="qMz-TU-9i5" userLabel="Album Button">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="jSp-Dn-Gfj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="s14-xF-pIO"/>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2q-Jr-Yze">
-                                <rect key="frame" x="87" y="323" width="240" height="260"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="3ek-CW-KzT"/>
-                                    <constraint firstAttribute="width" constant="240" id="tkz-Ub-TGU"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="topTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCW-pz-XOa">
-                                <rect key="frame" x="141" y="231" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="bottomTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gqf-DZ-HTA">
-                                <rect key="frame" x="141" y="591" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="topTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCW-pz-XOa" userLabel="Top Text">
+                                <rect key="frame" x="20" y="168" width="382" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3gQ-k9-OET" secondAttribute="bottom" constant="16" id="10f-XP-Dfj"/>
+                            <constraint firstItem="g2O-bD-XcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CH7-Lt-t95"/>
+                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Q5y-58-Op9"/>
+                            <constraint firstItem="MCW-pz-XOa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="TeC-9O-7qX"/>
+                            <constraint firstItem="g2O-bD-XcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UIy-Oe-wbT"/>
                             <constraint firstItem="3gQ-k9-OET" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Z3g-QT-c5X"/>
-                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="gIT-5U-IT3"/>
-                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="i62-qS-Uff"/>
+                            <constraint firstItem="Gqf-DZ-HTA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="ZNw-JL-xZo"/>
+                            <constraint firstItem="3gQ-k9-OET" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ej4-Je-wnb"/>
+                            <constraint firstItem="Gqf-DZ-HTA" firstAttribute="bottom" secondItem="3gQ-k9-OET" secondAttribute="top" constant="-80" id="fys-P0-i2H"/>
+                            <constraint firstItem="g2O-bD-XcV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gDO-We-bYD"/>
+                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hxf-8K-88S"/>
+                            <constraint firstItem="MCW-pz-XOa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mal-Mh-DtN"/>
+                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="neD-yv-KEW"/>
+                            <constraint firstItem="Gqf-DZ-HTA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="s4f-Jq-uBp"/>
                             <constraint firstItem="3gQ-k9-OET" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yca-gk-CJ1"/>
+                            <constraint firstItem="j2q-Jr-Yze" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zhZ-MS-OIt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -72,4 +91,8 @@
             <point key="canvasLocation" x="-57.971014492753625" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
 </document>
