@@ -102,9 +102,9 @@ class MemeViewController: UIViewController,
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.restorationIdentifier == "topTextField" && textField.text == "" {
+        if textField == topTextField && textField.text == "" {
             textField.text = "TOP"
-        } else if textField.restorationIdentifier == "bottomTextField" && textField.text == "" {
+        } else if textField == bottomTextField && textField.text == "" {
             textField.text = "BOTTOM"
         }
     }
