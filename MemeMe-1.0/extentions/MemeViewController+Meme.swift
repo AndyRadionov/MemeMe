@@ -15,13 +15,15 @@ extension MemeViewController {
         
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil )
         controller.completionWithItemsHandler = { _, success, _, _ in
-            if success { self.save(memedImage) }
+            if success {
+                self.save(memedImage)
+            }
         }
         present(controller, animated: true, completion: nil)
     }
     
     private func save(_ memedImage: UIImage) {
         // Create the meme
-        let _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image, memedImage: memedImage)
+        Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image, memedImage: memedImage)
     }
 }
