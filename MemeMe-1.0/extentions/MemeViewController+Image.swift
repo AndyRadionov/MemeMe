@@ -11,8 +11,9 @@ import UIKit
 extension MemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func generateMemedImage() -> UIImage {
-        toolbar.isHidden = true
-        toolbar.isHidden = true
+        hideToolbars(true)
+        hideTextFieldsIfEmpty(true)
+        view.endEditing(true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -20,8 +21,8 @@ extension MemeViewController: UIImagePickerControllerDelegate, UINavigationContr
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        toolbar.isHidden = false
-        toolbar.isHidden = false
+        hideToolbars(false)
+        hideTextFieldsIfEmpty(false)
         return memedImage
     }
     

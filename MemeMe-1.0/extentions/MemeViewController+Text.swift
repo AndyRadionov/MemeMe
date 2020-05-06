@@ -10,29 +10,21 @@ import UIKit
 
 extension MemeViewController: UITextFieldDelegate {
     
-    func initTextFields() {
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
+    func setupTextFieldStyle(textField: UITextField, defaultText: String) {
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.autocapitalizationType = .allCharacters
+        textField.attributedPlaceholder = NSAttributedString(string: defaultText, attributes: [.foregroundColor: UIColor.lightText])
+    }
+    
+    func hideTextFieldsIfEmpty(_ hide: Bool) {
+        hideTextFieldIfEmpty(textField: topTextField, hide: hide)
+        hideTextFieldIfEmpty(textField: bottomTextField, hide: hide)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (topTextField.isFirstResponder && textField.text == "TOP") || (bottomTextField.isFirstResponder && textField.text == "BOTTOM") {
-            textField.text = ""
-        }
-        shareButton.isEnabled = true
-        cancelButton.isEnabled = true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == topTextField && textField.text == "" {
-            textField.text = "TOP"
-        } else if textField == bottomTextField && textField.text == "" {
-            textField.text = "BOTTOM"
-        }
+        enableNavbarButtons(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -58,6 +50,12 @@ extension MemeViewController: UITextFieldDelegate {
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
+    }
+    
+    private func hideTextFieldIfEmpty(textField: UITextField, hide: Bool) {
+        if let isEmpty = textField.text?.isEmpty {
+            textField.isHidden = hide && isEmpty
+        }
     }
     
     private func getKeyboardHeight(_ notification:Notification) -> CGFloat {

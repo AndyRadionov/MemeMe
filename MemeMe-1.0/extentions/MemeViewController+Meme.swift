@@ -22,6 +22,6 @@ extension MemeViewController {
     
     private func save(_ memedImage: UIImage) {
         // Create the meme
-        let _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
+        let _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image, memedImage: memedImage)
     }
 }

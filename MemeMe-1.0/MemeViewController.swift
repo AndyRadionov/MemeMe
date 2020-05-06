@@ -21,20 +21,18 @@ class MemeViewController: UIViewController {
     @IBOutlet weak var bottomTextField: UITextField!
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  -4
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth:  -4
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.contentMode = .scaleAspectFit
-        initTextFields()
+        initViewsState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        initViewsState()
         subscribeToKeyboardNotifications()
     }
     
@@ -57,16 +55,6 @@ class MemeViewController: UIViewController {
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         pickImage(sourceType: .camera)
-    }
-    
-    private func initViewsState() {
-        imageView.image = nil
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        albumButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
-        shareButton.isEnabled = false
-        cancelButton.isEnabled = false
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
     }
 }
 
