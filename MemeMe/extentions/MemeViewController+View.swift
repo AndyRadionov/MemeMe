@@ -21,7 +21,6 @@ extension EditMemeViewController {
     
     func enableNavbarButtons(_ enabled: Bool) {
         shareButton.isEnabled = enabled
-        cancelButton.isEnabled = enabled
     }
     
     func hideToolbars(_ hide: Bool) {

@@ -47,7 +47,7 @@ class EditMemeViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        initViewsState()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
