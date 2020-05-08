@@ -8,13 +8,15 @@
 
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    lazy var newMemeNavigationButtonDelegate = NewMemeNavigationButtonDelegate(viewController: self)
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController!.delegate = newMemeNavigationButtonDelegate
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,21 +24,22 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell") as! SentMemesTableViewCell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")!
         let meme = appDelegate.memes[indexPath.row]
-        
-        cell.imageView?.image = meme.memedImage
+        cell.pictureView?.contentMode = .scaleAspectFit
+        cell.pictureView?.image = meme.memedImage
+        cell.textView.adjustsFontSizeToFitWidth = false
+        cell.textView.lineBreakMode = .byTruncatingMiddle
+        cell.textView.text = "\(meme.topText) \(meme.bottomText)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "DetailMemeViewController") as! DetailMemeViewController
         detailController.meme = appDelegate.memes[indexPath.row]
         navigationController!.pushViewController(detailController, animated: true)
     }
-    
 
 }
