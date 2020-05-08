@@ -11,11 +11,10 @@ import UIKit
 class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    lazy var newMemeNavigationButtonDelegate = NewMemeNavigationButtonDelegate(viewController: self)
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationController!.delegate = newMemeNavigationButtonDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
