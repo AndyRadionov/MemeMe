@@ -30,13 +30,13 @@ class MemeNavigationController: UINavigationController, UINavigationControllerDe
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(action)
+            action: #selector(openEditMemeScreen)
         )
     }
     
-    @objc func action() {
-        let vc = topViewController?.storyboard!.instantiateViewController(withIdentifier: "EditMemeViewController") as! EditMemeViewController
-        vc.modalPresentationStyle = .fullScreen
-        topViewController?.present(vc, animated: true, completion: nil)
+    @objc func openEditMemeScreen() {
+        let viewController = topViewController?.storyboard!.instantiateViewController(withIdentifier: "EditMemeViewController") as! EditMemeViewController
+        viewController.modalPresentationStyle = .fullScreen
+        topViewController?.present(viewController, animated: true, completion: nil)
     }
 }
