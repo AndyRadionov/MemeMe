@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeViewController: UITextFieldDelegate {
+extension EditMemeViewController: UITextFieldDelegate {
     
     func setupTextFieldStyle(textField: UITextField, defaultText: String) {
         textField.delegate = self

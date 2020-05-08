@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeViewController {
+extension EditMemeViewController {
     
     func shareMeme() {
         let memedImage = generateMemedImage()
@@ -24,6 +24,10 @@ extension MemeViewController {
     
     private func save(_ memedImage: UIImage) {
         // Create the meme
-        Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image, memedImage: memedImage)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditMemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func generateMemedImage() -> UIImage {
         hideToolbars(true)
